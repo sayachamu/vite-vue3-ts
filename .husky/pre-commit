@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# 以下のブラインチ以外の作成を禁止する
+# readonly BRANCH_PREFIX='feature|fix'
+# readonly BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+# echo $BRANCH_NAME
+
+# if [[ ! $BRANCH_NAME =~ ^($BRANCH_PREFIX)/ ]]; then
+#   echo "❌ Prefix must be feature/ or fix/"
+
+#   # 以上終了（コミットされない）
+#   exit 1
+# fi
+
+npx lint-staged
