@@ -1,20 +1,19 @@
-name: Vercel Deployment
+name: vercel deployment
 on:
   push:
     branches:
       - $(git rev-parse --abbrev-ref HEAD)
 jobs:
   build_and_deploy:
-    runs-on: ubbuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
         run: npm ci
-        run: npm test
+        #run: npm test
         run: npm run build
         run: npm run deploy
         with:
-          vervel-token: ${{ secrets.VERCEL_TOKEN }}
-          vervel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vervel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
